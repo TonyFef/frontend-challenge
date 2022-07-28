@@ -1,7 +1,7 @@
 import { Card } from "../../components/Card/Card";
 import Spinner from "./Spinner";
 
-export const MainPageContainer = ({ stateLoading, stateError, fetchedArray, fetchNewCats }) => {
+export const MainPageContainer = ({ stateLoading, stateError, fetchedArray, fetchNewCats, moreCatsLoading }) => {
     return (
         <>
             {stateLoading && <Spinner />}
@@ -14,8 +14,10 @@ export const MainPageContainer = ({ stateLoading, stateError, fetchedArray, fetc
                     <Card key={cat.id} cat={cat} i={i} />
                 ))}
             </div>
-            {!stateLoading && (
-                <div className="text-center text-lg cursor-pointer" onClick={fetchNewCats}>
+            {moreCatsLoading ? (
+                <Spinner />
+            ) : (
+                <div className="text-center text-lg cursor-pointer mb-[31px] mt-[48px]" onClick={fetchNewCats}>
                     ... загружаем еще котиков ...
                 </div>
             )}

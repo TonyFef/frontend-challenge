@@ -29,3 +29,7 @@ export const filledLikeState = atom({
     key: "filledLikeState",
     default: false,
 });
+export const moreCatsLoadingState = atom({
+    key: "moreCatsLoadingState",
+    default: false,
+});
